@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "verify": "node verify-system.js",
+    "db:seed": "tsx src/lib/seed.ts",
     "db:push": "drizzle-kit push:mysql",
     "db:generate": "drizzle-kit generate:mysql",
     "db:studio": "drizzle-kit studio"
