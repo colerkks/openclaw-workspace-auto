@@ -1,6 +1,7 @@
 import { drizzle } from 'drizzle-orm/planetscale-serverless';
-import { connect } from '@planetscale/database';
+import { Client } from '@planetscale/database';
 import * as schema from './schema';
+import { mockDb } from './mock-db';
 
 /**
  * Database Connection
@@ -10,17 +11,15 @@ import * as schema from './schema';
  */
 const getDatabaseUrl = () => {
   const url = process.env.DATABASE_URL;
-  if (!url) {
-    throw new Error('DATABASE_URL environment variable is not set');
-  }
-  return url;
+  // Fallback to mock DB if no URL provided (for demo/preview)
+  return url || 'mysql://mock:mock@localhost:3306/mock';
 };
 
 // Create connection (compatible with both PlanetScale and MySQL)
-export const db = drizzle(
-  connect({ url: getDatabaseUrl() }),
-  { schema }
-);
+export const db = process.env.DATABASE_URL && !process.env.DATABASE_URL.includes('mysql://root:password') 
+  ? drizzle(new Client({ url: getDatabaseUrl() }), { schema })
+  : mockDb;
+
 
 /**
  * For development/testing with local MySQL, use this instead:

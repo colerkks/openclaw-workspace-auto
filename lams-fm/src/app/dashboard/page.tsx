@@ -168,7 +168,6 @@ export default function DashboardPage() {
           {/* Middle Column: Hashrate Display */}
           <div className="lg:col-span-1">
             <HashrateDisplay />
- />
           </div>
 
           {/* Right Column: AI Chat */}

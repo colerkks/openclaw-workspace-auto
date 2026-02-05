@@ -137,7 +137,7 @@ export const labResults = mysqlTable('lab_results', {
   labProvider: varchar('lab_provider', { length: 100 }),
   
   // Flexible storage for test values
-  values: json('values').notNull().().$type<Array<{
+  values: json('values').notNull().$type<Array<{
     biomarker: string;
     value: number;
     unit: string;
