@@ -1,0 +1,41 @@
+# Environment Variables
+.env
+.env.local
+.env.production
+
+# Database
+*.db
+*.sqlite
+
+# Dependencies
+node_modules/
+.pnp
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Drizzle
+drizzle/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+*.lcov
