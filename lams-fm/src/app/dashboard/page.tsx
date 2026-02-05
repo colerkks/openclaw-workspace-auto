@@ -6,6 +6,7 @@
 import { MatrixRadar } from '@/components/matrix-radar';
 import { MatrixCards } from '@/components/matrix-cards';
 import { AIChat } from '@/components/ai-chat';
+import { HashrateDisplay } from '@/components/hashrate-display';
 import Link from 'next/link';
 
 // Demo scores - in production, fetch from database
@@ -29,7 +30,7 @@ export default function DashboardPage() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font font-bold text-sm">FM</span>
+                <span className="text-white font-bold text-sm">FM</span>
               </div>
               <span className="text-xl font-bold text-gray-900">LAMS-FM</span>
             </Link>
@@ -72,9 +73,9 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Charts, Cards, and AI Chat Grid */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Left Column: Radar Chart and Cards */}
+        {/* Charts, Cards, AI Chat, and Hashrate Grid */}
+        <div className="grid lg:grid-cols-4 gap-8">
+          {/* Left Column: Radar Chart and Dimension Cards */}
           <div className="lg:col-span-2 space-y-8">
             {/* Radar Chart */}
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
@@ -122,7 +123,7 @@ export default function DashboardPage() {
                 >
                   <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                     <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7audi2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                     </svg>
                   </div>
                   <div>
@@ -136,7 +137,7 @@ export default function DashboardPage() {
                   className="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg hover:border-green-300 hover:bg-green-50 transition-colors"
                 >
                   <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24.24">
+                    <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
@@ -162,6 +163,12 @@ export default function DashboardPage() {
                 </Link>
               </div>
             </div>
+          </div>
+
+          {/* Middle Column: Hashrate Display */}
+          <div className="lg:col-span-1">
+            <HashrateDisplay />
+ />
           </div>
 
           {/* Right Column: AI Chat */}
